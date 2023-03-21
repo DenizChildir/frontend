@@ -9,6 +9,19 @@ import { Post, Reply } from './models';
 })
 export class HomepageComponent implements OnInit {
   posts: Post[] = [];
+  // Add this line to the AppComponent class
+  //newPost: Partial<Post> = {};
+
+// With this line
+  newPost: Post = {
+    id: 0,
+    userName: '',
+    title: '',
+    postText: '',
+    image: null,
+    date: '',
+    replies: [],
+  };
 
   constructor(private postService: PostService) {}
 

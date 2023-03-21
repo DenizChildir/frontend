@@ -1,4 +1,6 @@
 import {Component, Input} from '@angular/core';
+import {Post,Reply} from "../models";
+import {PostService} from "../../post-service.service";
 
 @Component({
   selector: 'app-post-list',
@@ -8,3 +10,4 @@ import {Component, Input} from '@angular/core';
 export class PostListComponent {
   @Input() posts: Array<any> | undefined;
 }
+
