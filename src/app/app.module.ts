@@ -8,6 +8,7 @@ import { TweetFormComponent } from './homepage/tweet-form/tweet-form.component';
 import {FormsModule} from "@angular/forms";
 import { PostListComponent } from './homepage/post-list/post-list.component';
 import { PostComponent } from './homepage/post-list/post/post.component';
+import { ReplyComponent } from './homepage/reply/reply.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PostComponent } from './homepage/post-list/post/post.component';
     HomepageComponent,
     TweetFormComponent,
     PostListComponent,
-    PostComponent
+    PostComponent,
+    ReplyComponent
   ],
   imports: [
     BrowserModule,

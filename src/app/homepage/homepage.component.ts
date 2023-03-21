@@ -7,22 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomepageComponent {
   posts = [
-    {
-      id: 1,
-      userName: 'JohnDoe',
-      title: 'My first post',
-      postText: 'Hello, this is my first post on this platform!',
-      image: null,
-      date: '2023-03-21T10:30:00',
-    },
-    {
-      id: 2,
-      userName: 'JaneDoe',
-      title: 'My amazing trip',
-      postText: 'I just got back from an amazing trip to Europe!',
-      image: 'data:image/png;base64,iVBORw0KGg...', // Shortened base64 for brevity
-      date: '2023-03-20T14:45:00',
-    },
+    // ...
     {
       id: 3,
       userName: 'BobSmith',
@@ -30,6 +15,26 @@ export class HomepageComponent {
       postText: 'I attended a really cool event last weekend.',
       image: null,
       date: '2023-03-19T19:15:00',
+      replies: [
+        {
+          id: 1,
+          tweetId: 3,
+          userName: 'JaneDoe',
+          title: 'Sounds fun!',
+          postText: 'I wish I could have attended too!',
+          image: null,
+          date: '2023-03-19T20:05:00',
+        },
+        {
+          id: 2,
+          tweetId: 3,
+          userName: 'JohnDoe',
+          title: 'Great!',
+          postText: 'What was your favorite part of the event?',
+          image: null,
+          date: '2023-03-19T21:30:00',
+        },
+      ],
     },
   ];
 }

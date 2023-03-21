@@ -3,5 +3,8 @@
   <p>{{ post.postText }}</p>
   <img *ngIf="post.image" [src]="post.image" alt="Post Image" />
   <p>{{ post.date | date: 'medium' }}</p>
+  <div class="replies" *ngIf="post.replies && post.replies.length > 0">
+    <h4>Replies</h4>
+    <app-reply *ngFor="let reply of post.replies" [reply]="reply"></app-reply>
+  </div>
 </div>
-
