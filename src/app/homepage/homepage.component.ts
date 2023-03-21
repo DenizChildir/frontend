@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {PostService} from "../post-service.service";
 
 @Component({
   selector: 'app-homepage',
@@ -6,6 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
+  /*
+  posts=[];
+  constructor(private postService: PostService) {}
+
+  ngOnInit(): void {
+    this.loadPosts();
+  }
+
+  loadPosts(): void {
+    this.postService.getPosts().subscribe((posts) => {
+      this.posts = posts;
+    });
+  }
+  */
   posts = [
     // ...
     {
