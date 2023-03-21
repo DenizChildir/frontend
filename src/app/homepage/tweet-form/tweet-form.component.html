@@ -1,0 +1,27 @@
+<div class="form-container">
+  <link rel="stylesheet" href="tweet-form.component.css">
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="name" name="name" required>
+    </div>
+
+    <div>
+      <label>Title:</label>
+      <input type="text" [(ngModel)]="title" name="title" required>
+    </div>
+
+    <div>
+      <label>Message:</label>
+      <textarea [(ngModel)]="message" name="message" required></textarea>
+    </div>
+
+    <div>
+      <label>Image:</label>
+      <input type="file" (change)="onImageSelected($event)">
+    </div>
+
+    <button type="submit">Tweet</button>
+  </form>
+</div>
+
