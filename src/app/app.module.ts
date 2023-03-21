@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TweetFormComponent } from './homepage/tweet-form/tweet-form.component';
 import {FormsModule} from "@angular/forms";
+import { PostListComponent } from './homepage/post-list/post-list.component';
+import { PostComponent } from './homepage/post-list/post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    TweetFormComponent
+    TweetFormComponent,
+    PostListComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
