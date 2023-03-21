@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import { PostListComponent } from './homepage/post-list/post-list.component';
 import { PostComponent } from './homepage/post-list/post/post.component';
 import { ReplyComponent } from './homepage/reply/reply.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,12 +18,13 @@ import { ReplyComponent } from './homepage/reply/reply.component';
     TweetFormComponent,
     PostListComponent,
     PostComponent,
-    ReplyComponent
+    ReplyComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
