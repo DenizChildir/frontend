@@ -13,6 +13,19 @@ export class HomepageComponent implements OnInit {
   //newPost: Partial<Post> = {};
 
 // With this line
+
+  onFileSelected(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      const file = inputElement.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.newPost.image = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
   newPost: Post = {
     id: 0,
     userName: '',
