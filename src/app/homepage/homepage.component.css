@@ -84,3 +84,38 @@ nav a {
   align-items: center;
   margin: auto;
 }
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post-list {
+  margin-bottom: 2rem;
+}
+
+.create-post {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.create-post input,
+.create-post textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.create-post button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-post button:hover {
+  background-color: #0069d9;
+}
