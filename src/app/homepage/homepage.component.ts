@@ -25,8 +25,23 @@ export class HomepageComponent implements OnInit {
 
   constructor(private postService: PostService) {}
 
-  ngOnInit(): void {
-    this.loadPosts();
+  // ngOnInit(): void {
+  //   this.loadPosts();
+  // }
+
+  ngOnInit() {
+    this.fetchPosts();
+  }
+
+  fetchPosts() {
+    this.postService.getPosts().subscribe(
+      (data: Post[]) => {
+        this.posts = data;
+      },
+      (error) => {
+        console.error('Error fetching posts:', error);
+      }
+    );
   }
 
   loadPosts(): void {
