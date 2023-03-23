@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from "../post-service.service";
 import { Post, Reply } from './models';
+import {Observable, of} from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-homepage',
@@ -63,11 +65,25 @@ export class HomepageComponent implements OnInit {
     });
   }
 
+  // createPost(post: Post): void {
+  //   this.postService.createPost(post).subscribe((newPost: Post) => {
+  //     this.posts.push(newPost);
+  //   });
+  // }
+  // ...
+
+  // ...
+
   createPost(post: Post): void {
-    this.postService.createPost(post).subscribe((newPost: Post) => {
-      this.posts.push(newPost);
+    this.postService.createPost(post.postText, post.image).subscribe((newPost: Post) => {
+      // Add the new post to the beginning of the posts array
+      this.posts.unshift(newPost);
     });
   }
+
+
+
+
 
   updatePost(post: Post): void {
     this.postService.updatePost(post.id, post).subscribe((updatedPost: Post) => {

@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Post, Reply} from "./homepage/models";
-
+import {delay} from "rxjs/operators";
+import { of } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,8 +18,25 @@ export class PostService {
     return this.http.get<Post[]>(this.apiUrl);
   }
 
-  createPost(post: any): Observable<any> {
-    return this.http.post(this.apiUrl, post);
+  // createPost(post: any): Observable<any> {
+  //   return this.http.post(this.apiUrl, post);
+  // }
+
+  createPost(postText: string, imageBase64: string | null): Observable<Post> {
+    const newPost: Post = {
+      id: Math.floor(Math.random() * 10000), // Generate a random ID for the mock post
+      userName: 'John Doe', // Set the correct userName here
+      title: 'New Post',
+      postText: postText,
+      image: imageBase64,
+      date: new Date().toISOString(),
+      replies: [],
+    };
+
+    console.log('Creating mock post:', newPost);
+
+    // Return the new post data wrapped in an Observable with a simulated delay
+    return of(newPost).pipe(delay(500));
   }
 
   updatePost(id: number, post: any): Observable<any> {
@@ -41,8 +59,8 @@ export class PostService {
     return this.http.delete(`${this.apiUrl}/${postId}/replies/${replyId}`);
   }
   addReply(postId: number, replyText: string): Observable<Reply> {
-    const reply: { date: string; image: null; postText: string; id: number; userName: string; title: string; tweetId: number } = {
-      id: 0, // Remove this line if your backend generates the ID
+    const reply: Reply = {
+      id: Date.now(), // Remove this line if your backend generates the ID
       tweetId: postId,
       userName: 'Anonymous', // Replace this with the actual user's name
       title: 'Reply Title', // Replace with an actual title if needed
@@ -53,5 +71,8 @@ export class PostService {
 
     return this.http.post<Reply>(this.repliesUrl, reply);
   }
+
+
+
 
 }
