@@ -14,8 +14,9 @@ export class ReplyComponent implements OnInit {
     title: '',
     postText: '',
     image: null,
-    date: '',
+    date: new Date().toISOString(),
   };
+
   @Output() deleteReply = new EventEmitter<number>();
 
   constructor() {}

@@ -9,9 +9,16 @@
   <p>{{ post.date | date: 'medium' }}</p>
   <button class="delete-button" (click)="onDeletePost()">Delete Post</button>
   <div class="replies" *ngIf="post.replies && post.replies.length > 0">
-    <h4>Replies</h4>
+    <!-- Other post content -->
 
-    <app-reply *ngFor="let reply of post.replies" [reply]="reply"></app-reply>
+    <form (ngSubmit)="onSubmitReply(replyInput.value)" #replyForm="ngForm">
+      <input type="text" ngModel #replyInput="ngModel" name="reply" placeholder="Write your reply..." required />
+      <button type="submit" [disabled]="!replyForm.form.valid">Reply</button>
+    </form>
+
+    <!-- Display replies -->
+    <app-reply *ngFor="let reply of post.replies" [reply]="reply" (deleteReplyEvent)="onDeleteReply(reply.id)"></app-reply>
+
   </div>
 </div>
 
