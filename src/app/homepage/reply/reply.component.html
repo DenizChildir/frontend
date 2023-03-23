@@ -1,8 +1,10 @@
-
 <div class="reply">
-  <button class="delete-button" (click)="onDeleteReply()">xxxx</button>
-  <h4>{{ reply.userName }} - {{ reply.title }}</h4>
-  <p>{{ reply.postText }}</p>
-  <img *ngIf="reply.image" [src]="reply.image" alt="Reply Image" />
-  <p>{{ reply.date | date: 'medium' }}</p>
+  <p class="reply-user">{{ reply.userName }}</p>
+  <p class="reply-title">{{ reply.title }}</p>
+  <p class="reply-text">{{ reply.postText }}</p>
+  <div *ngIf="reply.image">
+    <img [src]="reply.image" alt="Reply image" class="reply-image" />
+  </div>
+  <p class="reply-date">{{ reply.date | date: 'medium' }}</p>
+  <button class="delete-button" (click)="onDeleteReply(reply.id)">Delete Reply</button>
 </div>

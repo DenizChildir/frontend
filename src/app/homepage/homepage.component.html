@@ -18,24 +18,7 @@
   </nav>
 </header>
 <main>
-  <section class="tweet-box">
-    <textarea placeholder="What's happening?"></textarea>
-    <button>Tweet</button>
-  </section>
-  <section class="tweets">
-    <!-- Add tweets here -->
-    <div class="tweet">
-      <div class="user-info">
-        <img src="https://via.placeholder.com/50" alt="User profile picture">
-        <span class="username">@exampleUser</span>
-      </div>
-      <p class="tweet-content">This is an example tweet.</p>
-    </div>
-  </section>
   <app-tweet-form></app-tweet-form>
-<!--  <div style="max-width: 600px; margin: 0 auto;">-->
-<!--    <app-post-list [posts]="posts"></app-post-list>-->
-<!--  </div>-->
   <div class="create-post">
     <h2>Create a new post</h2>
     <input [(ngModel)]="newPost.userName" placeholder="Your name" />
@@ -47,7 +30,7 @@
   <div class="container">
     <h1>Posts</h1>
     <div class="post-list">
-      <app-post *ngFor="let post of posts" [post]="post" (createReply)="createReply(post.id, $event)" (updateReply)="updateReply(post.id, $event)" (deleteReply)="deleteReply(post.id, $event)" (updatePost)="updatePost($event)" (deletePost)="deletePost($event)">
+      <app-post *ngFor="let post of posts" [post]="post" (createReply)="createReply($event.tweetId, $event.userName, $event.title, $event.postText, $event.image)" (updateReply)="updateReply(post.id, $event)" (deleteReply)="deleteReply(post.id, $event)" (updatePost)="updatePost($event)" (deletePost)="deletePost($event)">
       </app-post>
     </div>
   </div>

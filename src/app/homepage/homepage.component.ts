@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from "../post-service.service";
 import { Post, Reply } from './models';
-import {Observable, of} from 'rxjs';
-import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-homepage',
@@ -65,25 +63,11 @@ export class HomepageComponent implements OnInit {
     });
   }
 
-  // createPost(post: Post): void {
-  //   this.postService.createPost(post).subscribe((newPost: Post) => {
-  //     this.posts.push(newPost);
-  //   });
-  // }
-  // ...
-
-  // ...
-
   createPost(post: Post): void {
-    this.postService.createPost(post.postText, post.image).subscribe((newPost: Post) => {
-      // Add the new post to the beginning of the posts array
-      this.posts.unshift(newPost);
+    this.postService.createPost(post).subscribe((newPost: Post) => {
+      this.posts.push(newPost);
     });
   }
-
-
-
-
 
   updatePost(post: Post): void {
     this.postService.updatePost(post.id, post).subscribe((updatedPost: Post) => {
@@ -98,14 +82,26 @@ export class HomepageComponent implements OnInit {
     });
   }
 
-  createReply(postId: number, reply: Reply): void {
-    this.postService.createReply(postId, reply).subscribe((newReply: Reply) => {
-      const postIndex = this.posts.findIndex((post) => post.id === postId);
-      if (postIndex !== -1) {
-        this.posts[postIndex].replies.push(newReply);
+  createReply(postId: number, userName: string, title: string, postText: string, image: string | null) {
+    const reply: Reply = {
+      id: 0, // This will be replaced by the server-generated ID
+      tweetId: postId,
+      userName: userName,
+      title: title,
+      postText: postText,
+      image: image,
+      date: new Date().toISOString(),
+    };
+
+    this.postService.createReply(postId, userName, title, postText, image).subscribe((newReply: Reply) => {
+      // Find the post in the list and add the new reply to its replies array
+      const post = this.posts.find((post) => post.id === postId);
+      if (post) {
+        post.replies.push(newReply);
       }
     });
   }
+
 
   updateReply(postId: number, reply: Reply): void {
     this.postService.updateReply(postId, reply.id, reply).subscribe((updatedReply: Reply) => {
