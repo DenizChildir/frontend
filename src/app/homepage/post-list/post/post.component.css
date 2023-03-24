@@ -49,15 +49,15 @@
   background-color: #0056b3;
 }
 
-/*.delete-button {*/
-/*  position: absolute;*/
-/*  top: 5px;*/
-/*  left: 5px;*/
-/*  background-color: red;*/
-/*  color: white;*/
-/*  border: none;*/
-/*  cursor: pointer;*/
-/*  font-size: 12px;*/
-/*  padding: 2px 5px;*/
-/*  border-radius: 3px;*/
-/*}*/
+.delete-button {
+  /*position: absolute;*/
+  /*top: 5px;*/
+  /*left: 5px;*/
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 5px;
+  border-radius: 3px;
+}

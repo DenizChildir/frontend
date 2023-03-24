@@ -20,4 +20,8 @@ export class TweetFormComponent {
     const file: File = (target.files as FileList)[0];
     // Handle image selection
   }
+
+  onSubmitTweet(value: any, file: File) {
+
+  }
 }

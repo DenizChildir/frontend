@@ -1,4 +1,30 @@
-
+<!--post.component.html-->
+<!--<div class="post">-->
+<!--  <h3>{{ post.userName }}</h3>-->
+<!--  <h3>{{ post.title }}</h3>-->
+<!--  <p>{{ post.postText }}</p>-->
+<!--  <div *ngIf="post.image">-->
+<!--    <img [src]="post.image" alt="Post image" class="post-image" />-->
+<!--  </div>-->
+<!--  <p>{{ post.date | date: 'medium' }}</p>-->
+<!--  <div class="delete-button-container"> &lt;!&ndash; Add this div &ndash;&gt;-->
+<!--    <button class="delete-button" (click)="onDeletePost()">Delete Post</button>-->
+<!--  </div>-->
+<!--  <div class="replies" *ngIf="post.replies && post.replies.length > 0">-->
+<!--     Other post content -->
+<!--  </div>-->
+<!--  <button class="delete-button" (click)="onDeletePost()">Delete Post</button>-->
+<!--   Add the class "reply-form" to the form element -->
+<!--  <form class="reply-form" (ngSubmit)="onSubmitReply(replyUserName.value, replyTitle.value, replyPostText.value, replyImage.files && replyImage.files.length > 0 ? replyImage.files[0] : null)" #replyForm="ngForm">-->
+<!--    <input type="text" ngModel #replyUserName="ngModel" name="userName" placeholder="Enter your name..." required />-->
+<!--    <input type="text" ngModel #replyTitle="ngModel" name="title" placeholder="Enter the title..." required />-->
+<!--    <textarea ngModel #replyPostText="ngModel" name="postText" placeholder="Write your reply..." required></textarea>-->
+<!--    <input type="file" (change)="onFileSelected($event)" #replyImage />-->
+<!--    <button type="submit" [disabled]="!replyForm.form.valid">Reply</button>-->
+<!--  </form>-->
+<!--   Display replies -->
+<!--  <app-reply *ngFor="let reply of post.replies" [reply]="reply" (deleteReplyEvent)="onDeleteReply(reply.id)"></app-reply>-->
+<!--</div>-->
 <div class="post">
   <h3>{{ post.userName }}</h3>
   <h3>{{ post.title }}</h3>
@@ -7,13 +33,12 @@
     <img [src]="post.image" alt="Post image" class="post-image" />
   </div>
   <p>{{ post.date | date: 'medium' }}</p>
-  <div class="delete-button-container"> <!-- Add this div -->
+  <div class="post-actions"> <!-- Add this div -->
     <button class="delete-button" (click)="onDeletePost()">Delete Post</button>
   </div>
   <div class="replies" *ngIf="post.replies && post.replies.length > 0">
     <!-- Other post content -->
   </div>
-  <button class="delete-button" (click)="onDeletePost()">Delete Post</button>
   <!-- Add the class "reply-form" to the form element -->
   <form class="reply-form" (ngSubmit)="onSubmitReply(replyUserName.value, replyTitle.value, replyPostText.value, replyImage.files && replyImage.files.length > 0 ? replyImage.files[0] : null)" #replyForm="ngForm">
     <input type="text" ngModel #replyUserName="ngModel" name="userName" placeholder="Enter your name..." required />
@@ -25,6 +50,8 @@
   <!-- Display replies -->
   <app-reply *ngFor="let reply of post.replies" [reply]="reply" (deleteReplyEvent)="onDeleteReply(reply.id)"></app-reply>
 </div>
+
+
 
 
 <!--<div class="post">-->

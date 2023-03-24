@@ -44,9 +44,6 @@ export class PostService {
     return this.http.post<Reply>(`http://localhost:3000/api/posts/${postId}/replies`, newReply);
 
   }
-
-
-
   updateReply(postId: number, replyId: number, reply: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${postId}/replies/${replyId}`, reply);
   }

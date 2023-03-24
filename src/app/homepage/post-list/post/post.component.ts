@@ -49,11 +49,6 @@ export class PostComponent {
     this.deletePost.emit(this.post.id);
   }
 
-  // onSubmitReply(replyText: string) {
-  //   this.postService.addReply(this.post.id, replyText).subscribe((newReply: Reply) => {
-  //     this.post.replies.push(newReply);
-  //   });
-  // }
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
@@ -86,7 +81,5 @@ export class PostComponent {
     // Reset the form and image
     this.selectedImage = null;
   }
-
-
 
 }
